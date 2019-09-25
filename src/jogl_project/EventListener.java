@@ -95,7 +95,7 @@ public class EventListener implements GLEventListener {
         GL2 gl = drawable.getGL().getGL2();
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        gl.glOrtho(0, 700, 500, 0, -1, 1);  // Pense que sua tela tenha 4 quadrantes onde
+        gl.glOrtho(0, Jogl_Project.getWindowWidth(), Jogl_Project.getWindowHeight(), 0, -1, 1);  // Pense que sua tela tenha 4 quadrantes onde
         gl.glMatrixMode(GL2.GL_MODELVIEW);           // O eixo do x tenha -320 --> 0 e  0 --> 320
         // E o eixo y tenha -180 --> 0 e 0 --> 180
     }
