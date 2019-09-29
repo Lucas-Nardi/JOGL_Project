@@ -3,8 +3,8 @@ package jogl_project;
 import com.jogamp.nativewindow.util.Point;
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
-import static jogl_project.EventListener.TodosPontos;
 import static jogl_project.EventListener.qtdPonto;
+import static jogl_project.EventListener.pontosOriginais;
 
 public class MouseInput implements MouseListener {
 
@@ -39,7 +39,7 @@ public class MouseInput implements MouseListener {
             if(EventListener.qtdPonto < Jogl_Project.tamanho ){
                 
                 p = new Point(x,y);
-                EventListener.TodosPontos.add(p);
+                EventListener.pontosOriginais.add(p);
                 qtdPonto++;
             }
             if(qtdPonto == Jogl_Project.tamanho){
@@ -49,12 +49,12 @@ public class MouseInput implements MouseListener {
         } else { // ESTOU PEGANDO O PONTO PARA ARRASTAR
             
             if (pegou == false) {
-                for (int j = 0; j < EventListener.TodosPontos.size(); j++) {
-                    p = TodosPontos.get(j);                    
+                for (int j = 0; j < EventListener.pontosOriginais.size(); j++) {
+                    p = pontosOriginais.get(j);                    
 
                     if ((p.getX() >= (x - 22) && p.getX() <= (x + 22)) && (p.getY() >= (y - 22) && p.getY() <= (y + 22))) {
                         pegou = true;
-                        quePonto = j;  // QUE PONTO DO VETOR (TodosPontos) EU VOU ARRASTAR
+                        quePonto = j;  // QUE PONTO DO VETOR (pontosOriginais) EU VOU ARRASTAR
                     }
                 }
             }
@@ -69,8 +69,8 @@ public class MouseInput implements MouseListener {
         
         if (KeyBoardInput.mexerPonto == true && pegou == true) {          
             
-            TodosPontos.get(quePonto).setX(x); // ALTERO O X DO PONTO QUE EU PEGUEI COM AS COORDENADAS DO MOUSE
-            TodosPontos.get(quePonto).setY(y);  // ALTERO O Y DO PONTO QUE EU PEGUEI COM AS COORDENADAS DO MOUSE
+            pontosOriginais.get(quePonto).setX(x); // ALTERO O X DO PONTO QUE EU PEGUEI COM AS COORDENADAS DO MOUSE
+            pontosOriginais.get(quePonto).setY(y);  // ALTERO O Y DO PONTO QUE EU PEGUEI COM AS COORDENADAS DO MOUSE
         }
 
     }

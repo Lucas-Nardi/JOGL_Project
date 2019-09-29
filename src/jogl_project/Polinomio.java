@@ -16,9 +16,16 @@ public class Polinomio {
         
         for(int i=0; i < p.size(); i++){
             
-            resultado = resultado + Math.pow((1-t), (n - i)) * Math.pow(t, i) * p.get(i).getX(); // CALCULA O VALOR DE X
+            if(i == 0 || i == n){
+                
+                resultado = resultado + Math.pow((1-t), (n - i)) * Math.pow(t, i) * p.get(i).getX(); // CALCULA O VALOR DE X            
+                resultado2 = resultado2 + Math.pow((1-t), (n - i)) * Math.pow(t, i) * p.get(i).getY(); // CALCULA O VALOR DE Y
+                
+            }else{
+                resultado = resultado + Math.pow((1-t), (n - i)) * (Math.pow(t, i) * n)* p.get(i).getX(); // CALCULA O VALOR DE X            
+                resultado2 = resultado2 + Math.pow((1-t), (n - i)) * (Math.pow(t, i) * n) * p.get(i).getY(); // CALCULA O VALOR DE Y
+            }
             
-            resultado2 = resultado2 + Math.pow((1-t), (n - i)) * Math.pow(t, i) * p.get(i).getY(); // CALCULA O VALOR DE Y
         }
         resultX = resultado;
         resultY = resultado2;
